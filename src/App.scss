@@ -1,0 +1,25 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.App {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#contents {
+    padding: 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}

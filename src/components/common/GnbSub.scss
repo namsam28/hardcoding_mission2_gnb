@@ -1,0 +1,34 @@
+.gnb-depth1 li:hover .gnb-depth2,
+.gnb-depth1 a.active ~ .gnb-depth2 {
+    height: 30px;
+}
+.gnb-depth1 li:hover .gnb-depth2 {
+    z-index: 1;
+}
+.gnb-depth2 {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: #333;
+
+    ul {
+        li {
+            display: inline-block;
+            & + li {
+                margin-left: 20px;
+            }
+
+            a {
+                color: #fff;
+                font-size: 14px;
+                line-height: 30px;
+                text-decoration: none;
+            }
+        }
+    }
+}
