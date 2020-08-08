@@ -9,7 +9,7 @@ import Sitemap from "./api/SitemapInfo";
 import "./App.scss";
 
 const App = () => {
-    console.log(Sitemap);
+    //console.log(Sitemap);
 
     return (
         <div className="App">
@@ -17,11 +17,37 @@ const App = () => {
 
             <main id="contents">
                 <Switch>
-                    <Route path="/" component={Main} exact={true} />
-                    <Route path="/intro" component={Intro} />
-                    <Route path="/mypage" component={Mypage} />
-                    <Route path="/etc" component={Etc} />
-                    <Route path="*" component={Main} />
+                    <Route
+                        path="/"
+                        render={({ match }) => (
+                            <Main sitemap={Sitemap} match={match} />
+                        )}
+                        exact
+                    />
+                    <Route
+                        path="/intro"
+                        render={({ match }) => (
+                            <Intro sitemap={Sitemap} match={match} />
+                        )}
+                    />
+                    <Route
+                        path="/mypage"
+                        render={({ match }) => (
+                            <Mypage sitemap={Sitemap} match={match} />
+                        )}
+                    />
+                    <Route
+                        path="/etc"
+                        render={({ match }) => (
+                            <Etc sitemap={Sitemap} match={match} />
+                        )}
+                    />
+                    <Route
+                        path="*"
+                        render={({ match }) => (
+                            <Main sitemap={Sitemap} match={match} />
+                        )}
+                    />
                 </Switch>
             </main>
         </div>

@@ -1,7 +1,10 @@
 import React from "react";
 
-const Etc = ({ location }) => {
-    const mainTitle = location.mainTitle;
+const Etc = ({ match, sitemap }) => {
+    const pageInfo = sitemap.find(
+        (page) => page.path === match.path || "*" === match.path
+    );
+    const mainTitle = pageInfo.pagename;
 
     return (
         <div>

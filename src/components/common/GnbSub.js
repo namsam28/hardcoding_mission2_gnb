@@ -2,28 +2,23 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./GnbSub.scss";
 
-const GnbSub = ({ depth1, navInfo, mainTitle }) => {
-    const MAIN_TITLE = mainTitle;
-    const NAVIGATION_DEPTH1 = depth1;
-    const NAVIGATION_DEPTH2 = navInfo;
+const GnbSub = ({ depth1, navInfo }) => {
+    const naviDepth1 = depth1;
+    const naviDepth2 = navInfo;
 
     return (
         <div className="gnb-depth2">
             <ul>
-                {NAVIGATION_DEPTH2.length > 0 &&
-                    NAVIGATION_DEPTH2.map((nav) => {
+                {naviDepth2.length > 0 &&
+                    naviDepth2.map((depth2) => {
                         return (
-                            <li key={nav.path}>
+                            <li key={depth2.path}>
                                 <NavLink
                                     activeClassName="active"
-                                    to={{
-                                        pathname: NAVIGATION_DEPTH1 + nav.path,
-                                        mainTitle: MAIN_TITLE,
-                                        subTitle: nav.pagename,
-                                    }}
+                                    to={naviDepth1 + depth2.path} //depth1의 url과 depth2 url을 조합
                                     exact
                                 >
-                                    {nav.pagename}
+                                    {depth2.pagename}
                                 </NavLink>
                             </li>
                         );
